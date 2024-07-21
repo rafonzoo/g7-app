@@ -9,7 +9,7 @@ const LazyImage: RFZ<{ imageUrl: string; className?: string }> = ({
 }) => {
   const imgRef = useRef<HTMLImageElement | null>(null)
   const prefix = process.env.NEXT_PUBLIC_IMAGEKIT_URL ?? ''
-  const url = [prefix + '/projects/g7' + imageUrl].join('')
+  const url = [prefix + '/projects/g7/tr:q-75' + imageUrl].join('')
 
   useEffect(() => {
     const img = imgRef.current
@@ -21,7 +21,13 @@ const LazyImage: RFZ<{ imageUrl: string; className?: string }> = ({
             const target = entry.target as HTMLImageElement
             const url = target.getAttribute('data-src')
 
-            if (url) target.src = url
+            if (url) {
+              target.src = url
+              target.onload = () => {
+                target.removeAttribute('data-src')
+              }
+            }
+
             observer.unobserve(target)
           }
         })

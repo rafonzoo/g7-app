@@ -23,6 +23,7 @@ export const HomeVideo = () => {
         muted
         loop
         autoPlay
+        playsInline
       >
         <source
           type='video/mp4'
