@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
+import GlobalHeader from '@/components/Global/Header'
+import GlobalFooter from '@/components/Global/Footer'
 import { Inter } from 'next/font/google'
 import { Brand } from '@/config/const'
 import { tw } from '@/shared/lib'
-import GlobalHeader from '@/components/Global/Header'
-import GlobalFooter from '@/components/Global/Footer'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,7 +23,7 @@ export default function RootLayout({
       <head>
         <meta name='theme-color' content='rgb(244 244 245 / 1)' />
       </head>
-      <body className={tw(inter.className, '-tracking-base min-w-[320px]')}>
+      <body className={tw(inter.className, 'min-w-[320px] -tracking-base')}>
         <GlobalHeader />
         <main className='pt-12'>{children}</main>
         <GlobalFooter />

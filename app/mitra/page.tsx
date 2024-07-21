@@ -1,9 +1,7 @@
+import PageTemplate from '@/components/Template/Page'
+
 const PartnerPage = () => {
-  return (
-    <div>
-      <p>Partner page</p>
-    </div>
-  )
+  return <PageTemplate title='Mitra'></PageTemplate>
 }
 
 export default PartnerPage

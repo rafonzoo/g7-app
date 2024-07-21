@@ -9,3 +9,10 @@ li {
 a {
   display: inline-block;
 }
+
+button:disabled,
+input:disabled,
+textarea:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

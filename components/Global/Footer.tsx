@@ -1,27 +1,28 @@
+import Link from 'next/link'
 import DisplayTitle from '@/components/Title/Display'
-import { Brand, Submenus } from '@/config/const'
+import { Brand, Menus, Submenus } from '@/config/const'
 
 const GlobalFooter = () => {
   return (
     <footer className='flex flex-col bg-zinc-900 pt-10 text-sm tracking-normal text-zinc-400'>
       <div className='mx-auto grid w-full max-w-large grid-cols-1 gap-10 px-4 md:w-copy md:grid-cols-[auto,15%,15%,15%] md:gap-0 md:px-0'>
         <div>
-          <DisplayTitle as='p' className='text-gold text-xl'>
+          <DisplayTitle as='p' className='text-xl text-gold'>
             {Brand.Name}
           </DisplayTitle>
           <address className='mt-2 block not-italic'>
-            Jl. Pangeran Antasari No.70, RW.8,
+            Jems Garden Residence, Ruko Jl. Inpres
             <br />
-            Cilandak Bar., Kec. Cilandak,
+            Raya No. 1D, RT.003 / RW. 004, Gaga,
             <br />
-            Kota Jakarta Selatan,
+            Kec. Larangan, Kota Tangerang,
             <br />
-            Daerah Khusus Ibukota Jakarta 12430
+            Banten&nbsp;15154
           </address>
           <p className='mt-4'>
             <b className='text-white'>Jam operasional</b>
           </p>
-          <p>Senin – Sabtu (10.00-18.00)</p>
+          <p>Senin – Jumat (09.00-17.00)</p>
         </div>
 
         <div>
@@ -30,7 +31,9 @@ const GlobalFooter = () => {
           </p>
           <ul className='mt-2 space-y-1'>
             {Submenus.services.map((submenu, index) => (
-              <li key={index}>{submenu.name}</li>
+              <li key={index}>
+                <Link href={submenu.path as string}>{submenu.name}</Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -39,26 +42,13 @@ const GlobalFooter = () => {
             <b>Info</b>
           </p>
           <ul className='mt-2 space-y-1'>
-            {[
-              {
-                name: 'Portfolio',
-                path: '/',
-              },
-              {
-                name: 'Mitra',
-                path: '/',
-              },
-              {
-                name: 'Tentang',
-                path: '/',
-              },
-              {
-                name: 'Kontak',
-                path: '/',
-              },
-            ].map((submenu, index) => (
-              <li key={index}>{submenu.name}</li>
-            ))}
+            {Menus.filter((item) => item.name !== 'Layanan').map(
+              (submenu, index) => (
+                <li key={index}>
+                  <Link href={submenu.path as string}>{submenu.name}</Link>
+                </li>
+              )
+            )}
           </ul>
         </div>
         <div>
@@ -72,15 +62,19 @@ const GlobalFooter = () => {
                 path: '/',
               },
               {
-                name: 'Facebook',
-                path: '/',
-              },
-              {
-                name: 'Twitter/X',
+                name: 'Youtube',
                 path: '/',
               },
               {
                 name: 'TikTok',
+                path: '/',
+              },
+              {
+                name: 'Pinterest',
+                path: '/',
+              },
+              {
+                name: 'LinkedIn',
                 path: '/',
               },
             ].map((submenu, index) => (

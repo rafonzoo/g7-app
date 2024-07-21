@@ -3,14 +3,14 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { tw } from '@/shared/lib'
-import { useRouter } from 'next/navigation'
 import { CgMenuGridO } from 'react-icons/cg'
 import { Menus } from '@/config/const'
+
+const headerMenu = Menus.filter((menu) => menu.name.toLowerCase() !== 'mitra')
 
 const MobileHeader = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [showSubmenu, setShowSubmenu] = useState(false)
-  const router = useRouter()
 
   useEffect(() => {
     if (!showMenu && showSubmenu) {
@@ -38,6 +38,7 @@ const MobileHeader = () => {
           href='/'
           className='inline-flex h-12 w-12 items-center justify-center'
           title='Home'
+          onClick={() => setShowMenu(false)}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src='/g7-logo.svg' alt='Logo' />
@@ -45,7 +46,7 @@ const MobileHeader = () => {
         <span className='inline-block h-12 w-12'></span>
       </div>
       <nav className='flex flex-col divide-y-[1px] px-8 pt-8'>
-        {Menus.map((menuItem, index) => (
+        {headerMenu.map((menuItem, index) => (
           <div key={index} className='border-zinc-200'>
             {Array.isArray(menuItem.path) ? (
               <div className='group'>
@@ -104,7 +105,7 @@ const DesktopHeader = () => {
           <img src='/g7-logo.svg' alt='Logo' />
         </Link>
         <nav className='flex space-x-6'>
-          {Menus.map((menuItem, index) => (
+          {headerMenu.map((menuItem, index) => (
             <div key={index} className='text-sm'>
               {Array.isArray(menuItem.path) ? (
                 <div className='group relative'>
