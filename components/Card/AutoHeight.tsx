@@ -25,14 +25,16 @@ const CardAutoHeight: RFZ<CardAutoHeightProps> = ({
         cardProps.className
       )}
     >
-      <span
-        className={tw(
-          'mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg',
-          !icon && 'bg-blue-200'
-        )}
-      >
-        {icon}
-      </span>
+      {!!icon && (
+        <span
+          className={tw(
+            'mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg',
+            'bg-blue-200'
+          )}
+        >
+          {icon}
+        </span>
+      )}
       <DisplayTitle
         className={tw(
           'mb-2 text-xl -tracking-base md:text-2xl lg:text-2.5xl',

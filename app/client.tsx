@@ -19,7 +19,7 @@ export const HomeVideo = () => {
     <div className='relative mt-14 h-[690px] overflow-hidden rounded-3xl bg-zinc-100 md:mt-18 md:h-auto md:pt-[75%] lg:mt-20 lg:h-[744px]'>
       <video
         ref={vidRef}
-        className='absolute left-0 top-0 h-full w-full object-cover object-bottom'
+        className='absolute left-0 top-0 h-full w-full object-cover object-bottom will-change-transform'
         muted
         loop
         autoPlay

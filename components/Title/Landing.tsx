@@ -49,7 +49,7 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
             className={tw(
               'mx-auto w-safe whitespace-pre-line text-4xl md:w-full md:text-4.5xl lg:text-5xl',
               // Elevated
-              '[[data-template-elevated]_&]:max-w-[320px] [[data-template-elevated]_&]:md:max-w-[540px] [[data-template-elevated]_&]:lg:max-w-[720px]',
+              '[[data-template-elevated]_&]:max-w-[320px] [[data-template-elevated]_&]:md:max-w-[540px] [[data-template-elevated]_&]:lg:max-w-[980px]',
               '[[data-template-elevated]_&]:text-4.5xl [[data-template-elevated]_&]:md:text-6xl [[data-template-elevated]_&]:lg:text-7.5xl',
               // Enhanced
               '[[data-typography-enhanced]_&]:!leading-none [[data-typography-enhanced]_&]:max-lg:text-[64px]'
@@ -63,7 +63,7 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
                 'mx-auto mt-5 text-lg !leading-normal md:mt-7 md:text-xl lg:mt-8',
                 // Elevated
                 '[[data-template-elevated]_&]:max-w-[370px] [[data-template-elevated]_&]:md:max-w-[480px]',
-                '[[data-template-elevated]_&]:lg:max-w-[600px] [[data-template-elevated]_&]:lg:text-2xl'
+                '[[data-template-elevated]_&]:lg:max-w-[980px] [[data-template-elevated]_&]:lg:text-2xl'
               )}
             >
               {headline}

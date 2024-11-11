@@ -4,53 +4,41 @@ import { tw } from '@/shared/lib'
 const CardListWhy = () => {
   return (
     <CardList
-      title={'Why we are the best\xA0brand\xA0for\xA0you.'}
+      title={'Kenapa memilih\xA0kami?'}
       items={[
         {
           className: tw('bg-white !pb-14'),
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar mi et mauris pretium scelerisque.', // prettier-ignore
-          eyebrow: <span className='mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-200' />, // prettier-ignore
+          description: 'Konsultasi ide, desain, kebutuhan dan rancangan biaya tanpa dipungut biaya.', // prettier-ignore
+          eyebrow: <></>,
           title: (
             <>
-              Free
+              Gratis
               <br />
-              Consultation
+              Konsultasi
             </>
           ),
         },
         {
           className: tw('bg-white !pb-14'),
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar mi et mauris pretium scelerisque.', // prettier-ignore
-          eyebrow: <span className='mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-200' />, // prettier-ignore
+          description: 'Pilih dan tentukan sendiri material dan komponen yang diinginkan.', // prettier-ignore
+          eyebrow: <></>,
           title: (
             <>
-              Free
+              Garansi
               <br />
-              Consultation
+              Pelayanan
             </>
           ),
         },
         {
           className: tw('bg-white !pb-14'),
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar mi et mauris pretium scelerisque.', // prettier-ignore
-          eyebrow: <span className='mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-200' />, // prettier-ignore
+          description: 'Memberikan layanan pemeliharan setelah pekerjaan selesai.', // prettier-ignore
+          eyebrow: <></>,
           title: (
             <>
-              Free
+              Produk
               <br />
-              Consultation
-            </>
-          ),
-        },
-        {
-          className: tw('bg-white !pb-14'),
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar mi et mauris pretium scelerisque.', // prettier-ignore
-          eyebrow: <span className='mb-2 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-blue-200' />, // prettier-ignore
-          title: (
-            <>
-              Free
-              <br />
-              Consultation
+              dan Kualitas
             </>
           ),
         },

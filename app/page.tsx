@@ -19,18 +19,15 @@ export default function Home() {
     className: tw('bg-zinc-100'),
   }))
 
-  const portfolios = [
-    Portfolio[0],
-    Portfolio[2],
-    Portfolio[3],
-    Portfolio[4],
-  ].map((item) => ({
-    url: item.slug,
-    title: `“${item.quote}”`,
-    description: 'Apartment · 3 Ruang · 47.2m2',
-    className: tw('bg-zinc-100'),
-    eyebrow: <span className='mb-2 block font-semibold'>{item.owner}</span>,
-  }))
+  const portfolios = [Portfolio[0], Portfolio[2], Portfolio[3], Portfolio[4]]
+    .filter(Boolean)
+    .map((item) => ({
+      url: item.slug,
+      title: `“${item.quote}”`,
+      description: 'Apartment · 3 Ruang · 47.2m2',
+      className: tw('bg-zinc-100'),
+      eyebrow: <span className='mb-2 block font-semibold'>{item.owner}</span>,
+    }))
 
   return (
     <>
@@ -57,16 +54,10 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <CardList
-          fullHeight
-          title={'Explore our\xA0services'}
-          items={servicesItems}
-        />
-        <CardList
-          fullHeight
-          title='They’re all proudly said'
-          items={portfolios}
-        />
+        <CardList fullHeight title={'Layanan kami'} items={servicesItems} />
+        {!!portfolios.length && (
+          <CardList fullHeight title='Portfolio' items={portfolios} />
+        )}
       </section>
       <section>
         <div className='bg-zinc-100'>

@@ -20,10 +20,7 @@ const ServicesPage = ({ params }: ServicesProps) => {
       imageUrl={service.cardImage}
       headline={
         <>
-          <p>
-            Private Cloud Compute sets a new standard for privacy in artificial
-            intelligence.
-          </p>
+          <p>{service.excerpt}</p>
           <Link
             href={Routes.contact}
             className='mt-6 rounded-full bg-navy px-6 py-2.5 text-base font-semibold text-amber-300'
