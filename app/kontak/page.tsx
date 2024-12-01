@@ -25,7 +25,7 @@ const ContactPage = (props: { searchParams: { ctx: string | null } }) => {
             `Email: ${formData.get('email')}`,
             `Alamat: ${formData.get('address')}`,
             `Pesan: ${formData.get('message')}`,
-          ].join('\n\r')
+          ].join('\n')
 
           window.open(
             'https://wa.me/+6289602949132?text=' + encodeURIComponent(text)

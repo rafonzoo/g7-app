@@ -2,8 +2,9 @@
 
 import type { ReactNode, JSX } from 'react'
 import Link from 'next/link'
-import LazyImage from '@/components/Image/Lazy'
+import LazyImage from '@/components/Lazy/Image'
 import { tw } from '@/shared/lib'
+import LazyVideo from '@/components/Lazy/Video'
 
 export type CardProps = {
   as?: keyof JSX.IntrinsicElements
@@ -38,12 +39,19 @@ const Card: RFZ<CardProps> = ({
         />
       )}
 
-      {cardImageUrl && (
-        <LazyImage
-          imageUrl={cardImageUrl}
-          className='absolute left-0 top-0 z-[1] h-full w-full object-cover object-center'
-        />
-      )}
+      {cardImageUrl ? (
+        cardImageUrl.includes('.mp4') ? (
+          <LazyVideo
+            src={cardImageUrl}
+            className='absolute left-0 top-0 h-full w-full object-cover'
+          />
+        ) : (
+          <LazyImage
+            src={cardImageUrl}
+            className='absolute left-0 top-0 h-full w-full object-cover'
+          />
+        )
+      ) : null}
     </Tag>
   )
 }

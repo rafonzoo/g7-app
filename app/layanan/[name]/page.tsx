@@ -3,7 +3,7 @@ import DisplayTitle from '@/components/Title/Display'
 import PageTemplate from '@/components/Template/Page'
 import { Portfolio, Routes, Services } from '@/config/const'
 import { capitalize } from '@/tools/helpers'
-import LazyImage from '@/components/Image/Lazy'
+import LazyImage from '@/components/Lazy/Image'
 
 type ServicesProps = {
   params: {
@@ -44,7 +44,7 @@ const ServicesPage = ({ params }: ServicesProps) => {
                   >
                     <figure className='relative h-[286px] w-full bg-zinc-200 md:h-[545px] lg:h-[750px]'>
                       <LazyImage
-                        imageUrl={project.galleries[0]}
+                        src={project.galleries[0]}
                         className='absolute left-1/2 top-0 mx-auto h-full w-[501px] max-w-none -translate-x-1/2 rounded-2xl bg-zinc-100 object-cover md:w-large lg:w-super'
                       />
                     </figure>

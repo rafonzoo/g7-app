@@ -7,7 +7,7 @@ import DisplayTitle from '@/components/Title/Display'
 import { Brand, Portfolio, Services } from '@/config/const'
 import { tw } from '@/shared/lib'
 import { capitalize, keys } from '@/tools/helpers'
-import LazyImage from '@/components/Image/Lazy'
+import LazyImage from '@/components/Lazy/Image'
 
 export default function Home() {
   const servicesItems = keys(Services).map((servicesKey) => ({
@@ -64,7 +64,7 @@ export default function Home() {
         </div>
         <div className='relative mt-14 overflow-hidden bg-zinc-100 pt-[56.25%] md:mt-18'>
           <LazyImage
-            imageUrl='https://ik.imagekit.io/jowwgz1mq/projects/g7/home.jpg'
+            src='https://ik.imagekit.io/jowwgz1mq/projects/g7/home.jpg'
             className='absolute left-0 top-0 h-full w-full object-cover'
           />
         </div>

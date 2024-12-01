@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import type { CardProps } from '@/components/Card'
 import Card from '@/components/Card'
 import { tw } from '@/shared/lib'
-import LazyImage from '@/components/Image/Lazy'
+import LazyImage from '@/components/Lazy/Image'
 
 type CardLandscapeProps = CardProps & {
   description: ReactNode
@@ -26,7 +26,7 @@ const CardLandscape: RFZ<CardLandscapeProps> = ({
       <figure className='relative h-[146px] overflow-hidden rounded bg-zinc-100 md:h-[194px] lg:h-[210px]'>
         {cardImageUrl && (
           <LazyImage
-            imageUrl={cardImageUrl}
+            src={cardImageUrl}
             className='absolute left-0 top-0 z-[1] h-full w-full object-cover object-center'
           />
         )}

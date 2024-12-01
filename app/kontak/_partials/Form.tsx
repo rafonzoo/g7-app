@@ -73,7 +73,7 @@ const ContactForm: RFZ<{ searchParams: string | null }> = ({
             id='subject'
             required
             disabled={pending}
-            className='peer inline-flex h-16 w-full appearance-none items-center rounded-lg border border-zinc-300 px-3 pt-5 text-base -tracking-base'
+            className='peer inline-flex h-16 w-full appearance-none items-center rounded-lg border border-zinc-300 bg-white px-3 pt-5 text-base -tracking-base'
             defaultValue={isPartners ? 'Mitra' : ''}
           >
             <option disabled value=''>

@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
 import DisplayTitle from '@/components/Title/Display'
-import LazyImage from '@/components/Image/Lazy'
+import LazyImage from '@/components/Lazy/Image'
 import { tw } from '@/shared/lib'
+import LazyVideo from '@/components/Lazy/Video'
 
 export type LandingTitleProps = {
   title: ReactNode
@@ -81,17 +82,13 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
         ) : (
           <div className={tw('relative mx-auto max-w-super pt-[75%]')}>
             {imageUrl.includes('.mp4') ? (
-              <video
+              <LazyVideo
                 src={imageUrl}
-                loop
-                playsInline
-                muted
-                autoPlay
                 className='absolute left-0 top-0 h-full w-full object-cover'
               />
             ) : (
               <LazyImage
-                imageUrl={imageUrl}
+                src={imageUrl}
                 className='absolute left-0 top-0 h-full w-full object-cover'
               />
             )}
