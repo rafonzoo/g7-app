@@ -2,6 +2,8 @@ import Link from 'next/link'
 import DisplayTitle from '@/components/Title/Display'
 import PageTemplate from '@/components/Template/Page'
 import { Portfolio, Routes, Services } from '@/config/const'
+import { capitalize } from '@/tools/helpers'
+import LazyImage from '@/components/Image/Lazy'
 
 type ServicesProps = {
   params: {
@@ -34,25 +36,30 @@ const ServicesPage = ({ params }: ServicesProps) => {
         <section>
           <div className='md:py-20'>
             <div className='mx-auto max-w-[549px] px-6 py-8 text-center md:max-w-[880px] md:px-8 md:py-10 lg:max-w-[1180px]'>
-              <ul className='grid grid-cols-1 gap-8'>
+              <ul className='grid grid-cols-1 gap-8 will-change-transform'>
                 {projects.map((project, index) => (
                   <li
                     key={index}
                     className='overflow-hidden rounded-3xl bg-white'
                   >
-                    <figure className='relative h-[286px] w-full bg-zinc-200 md:h-[545px] lg:h-[750px]' />
+                    <figure className='relative h-[286px] w-full bg-zinc-200 md:h-[545px] lg:h-[750px]'>
+                      <LazyImage
+                        imageUrl={project.galleries[0]}
+                        className='absolute left-1/2 top-0 mx-auto h-full w-[501px] max-w-none -translate-x-1/2 rounded-2xl bg-zinc-100 object-cover md:w-large lg:w-super'
+                      />
+                    </figure>
                     <div className='bg-navy p-8 md:pt-14 lg:pb-14 lg:pt-18'>
                       <DisplayTitle
                         as='h3'
                         className='mx-auto mb-7 max-w-[410px] text-2xl text-zinc-100 md:max-w-[620px] md:text-5xl lg:mb-10 lg:max-w-[780px] lg:text-6.5xl'
                       >
-                        “{project.quote}”
+                        {project.name}
                       </DisplayTitle>
                       <p className='text-xl font-semibold text-zinc-300 lg:text-2xl'>
                         {project.owner}
                       </p>
                       <p className='mb-6 mt-1 text-zinc-300 lg:mb-8'>
-                        {project.name}
+                        {capitalize(project.subtype)} · {project.concept}
                       </p>
                       <Link
                         href={project.slug}

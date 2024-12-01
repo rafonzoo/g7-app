@@ -9,7 +9,7 @@ const LazyImage: RFZ<{ imageUrl: string; className?: string }> = ({
 }) => {
   const imgRef = useRef<HTMLImageElement | null>(null)
   const prefix = process.env.NEXT_PUBLIC_IMAGEKIT_URL ?? ''
-  const url = [prefix + '/projects/g7/tr:q-75' + imageUrl].join('')
+  // const url = [prefix + '/projects/g7/tr:q-75' + imageUrl].join('')
 
   useEffect(() => {
     const img = imgRef.current
@@ -45,7 +45,9 @@ const LazyImage: RFZ<{ imageUrl: string; className?: string }> = ({
     // eslint-disable-next-line @next/next/no-img-element
     <img
       ref={imgRef}
-      data-src={url}
+      data-src={imageUrl}
+      // data-src={url}
+      src=''
       alt='Image'
       className={tw('block', className)}
     />

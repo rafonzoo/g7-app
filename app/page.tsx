@@ -4,10 +4,10 @@ import CardList from '@/components/List/Card'
 import CardListHow from '@/components/List/CardHow'
 import CardListWhy from '@/components/List/CardWhy'
 import DisplayTitle from '@/components/Title/Display'
-import { HomeVideo } from '@/app/client'
 import { Brand, Portfolio, Services } from '@/config/const'
 import { tw } from '@/shared/lib'
-import { keys } from '@/tools/helpers'
+import { capitalize, keys } from '@/tools/helpers'
+import LazyImage from '@/components/Image/Lazy'
 
 export default function Home() {
   const servicesItems = keys(Services).map((servicesKey) => ({
@@ -23,10 +23,21 @@ export default function Home() {
     .filter(Boolean)
     .map((item) => ({
       url: item.slug,
-      title: `“${item.quote}”`,
-      description: 'Apartment · 3 Ruang · 47.2m2',
+      title: capitalize(item.name),
       className: tw('bg-zinc-100'),
       eyebrow: <span className='mb-2 block font-semibold'>{item.owner}</span>,
+      cardImageUrl: item.galleries[0],
+      description: (
+        <>
+          {capitalize(item.subtype)} · {item.concept}
+          {item.wide ? (
+            <>
+              {' '}
+              · {item.wide} m<sup>2</sup>
+            </>
+          ) : null}
+        </>
+      ),
     }))
 
   return (
@@ -50,11 +61,16 @@ export default function Home() {
               {Brand.Tagline}
             </p>
           </div>
-          <HomeVideo />
+        </div>
+        <div className='relative mt-14 overflow-hidden bg-zinc-100 pt-[56.25%] md:mt-18'>
+          <LazyImage
+            imageUrl='https://ik.imagekit.io/jowwgz1mq/projects/g7/home.jpg'
+            className='absolute left-0 top-0 h-full w-full object-cover'
+          />
         </div>
       </section>
       <section>
-        <CardList fullHeight title={'Layanan kami'} items={servicesItems} />
+        <CardList fullHeight title='Layanan kami' items={servicesItems} />
         {!!portfolios.length && (
           <CardList fullHeight title='Portfolio' items={portfolios} />
         )}

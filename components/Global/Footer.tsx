@@ -59,26 +59,26 @@ const GlobalFooter = () => {
             {[
               {
                 name: 'Instagram',
-                path: '/',
+                path: 'https://www.instagram.com/geloratujuhutama',
               },
               {
                 name: 'Youtube',
-                path: '/',
+                path: 'https://www.youtube.com/@Gelora7Utama',
               },
               {
                 name: 'TikTok',
-                path: '/',
+                path: 'https://www.tiktok.com/geloratujuhutama',
               },
               {
                 name: 'Pinterest',
-                path: '/',
-              },
-              {
-                name: 'LinkedIn',
-                path: '/',
+                path: 'https://id.pinterest.com/gelora7utama',
               },
             ].map((submenu, index) => (
-              <li key={index}>{submenu.name}</li>
+              <li key={index}>
+                <Link href={submenu.path} target='_blank'>
+                  {submenu.name}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

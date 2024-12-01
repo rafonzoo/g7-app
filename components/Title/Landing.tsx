@@ -20,7 +20,9 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
   disableBorder,
   enhancedTitle,
 }) => {
-  const validImage = !!imageUrl?.toLowerCase()?.match(/.(png|jpg|jpeg|mov)/g)
+  const validImage = !!imageUrl
+    ?.toLowerCase()
+    ?.match(/.(png|jpg|jpeg|mov|mp4)/g)
 
   return (
     <section>
@@ -52,7 +54,7 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
               '[[data-template-elevated]_&]:max-w-[320px] [[data-template-elevated]_&]:md:max-w-[540px] [[data-template-elevated]_&]:lg:max-w-[980px]',
               '[[data-template-elevated]_&]:text-4.5xl [[data-template-elevated]_&]:md:text-6xl [[data-template-elevated]_&]:lg:text-7.5xl',
               // Enhanced
-              '[[data-typography-enhanced]_&]:!leading-none [[data-typography-enhanced]_&]:max-lg:text-[64px]'
+              '[[data-typography-enhanced]_&]:!leading-none [[data-typography-enhanced]_&]:max-lg:text-[54px]'
             )}
           >
             {title}
@@ -77,15 +79,22 @@ const LandingTitle: RFZ<LandingTitleProps> = ({
             </div>
           )
         ) : (
-          <div
-            className={tw(
-              'relative mx-auto h-[376px] max-w-super md:h-[600px] lg:h-[870px]'
+          <div className={tw('relative mx-auto max-w-super pt-[75%]')}>
+            {imageUrl.includes('.mp4') ? (
+              <video
+                src={imageUrl}
+                loop
+                playsInline
+                muted
+                autoPlay
+                className='absolute left-0 top-0 h-full w-full object-cover'
+              />
+            ) : (
+              <LazyImage
+                imageUrl={imageUrl}
+                className='absolute left-0 top-0 h-full w-full object-cover'
+              />
             )}
-          >
-            <LazyImage
-              imageUrl={imageUrl}
-              className='absolute left-1/2 top-0 mx-auto h-full w-[501px] max-w-none -translate-x-1/2 rounded-2xl bg-zinc-100 object-cover md:w-large lg:w-super'
-            />
           </div>
         )}
       </div>

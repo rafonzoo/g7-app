@@ -17,13 +17,12 @@ const AboutPage = () => {
 
   return (
     <PageTemplate
-      imageUrl='s'
       eyebrow='Tentang'
       title={'Gelora Tujuh\xA0Utama'}
-      headline='Private Cloud Compute sets a new standard for privacy in artificial intelligence.'
+      headline='Architecture Design and General Contractor'
     >
-      <section>
-        <CardList fullHeight title='Our services' items={servicesItems} />
+      <section className='-mt-[70px] md:-mt-20 lg:-mt-24'>
+        <CardList fullHeight title='Layanan kami' items={servicesItems} />
       </section>
       <section>
         <div className='bg-zinc-100'>
